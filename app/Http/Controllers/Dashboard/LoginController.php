@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\AdminLoginRequest;
 use App\Http\Requests\LoginRequest;
 use Auth;
 class LoginController extends Controller
@@ -11,7 +12,7 @@ class LoginController extends Controller
         return view('admin.auth.login');
     }
 
-    public function postLogin(LoginRequest  $request){
+    public function postLogin(AdminLoginRequest  $request){
 
         $remember_me = $request -> has('remember_me') ? true : false;
 
@@ -21,8 +22,17 @@ class LoginController extends Controller
             return redirect()->back()-> with(['error' =>'الإيميل أو الباسورد غير صحيح']);
     }
 
-    public function logout(){
-        Auth::guard('admin')->logout();
+    public function logout()
+    {
+
+        $gaurd = $this->getGaurd();
+        $gaurd->logout();
+
         return redirect()->route('admin.login');
+    }
+
+    private function getGaurd()
+    {
+        return auth('admin');
     }
 }
