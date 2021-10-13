@@ -20,13 +20,13 @@ Route::group(
     ], function(){
 Route::group(['namespace' => 'Dashboard', 'middleware'=>'guest:admin','prefix'=>'admin'], function(){
     Route::get('/login', 'LoginController@login')->name('admin.login');
-    Route::get('/logout', 'LoginController@logout')->name('admin.logout');
     Route::post('/post-login', 'LoginController@postLogin')->name('admin.postLogin');
 });
 
 
 Route::group(['namespace' => 'Dashboard', 'middleware' => 'auth:admin','prefix'=>'admin'], function(){
     Route::get('/', 'dashboardController@index')->name('admin.dashboard');
+    Route::get('/logout', 'LoginController@logout')->name('admin.logout');
     Route::group(['prefix'=> 'setting'], function(){
        Route::get('/shipping-method/{type}', 'SettingController@editShippingMethods')->name('edit.shipping.methods');
        Route::put('/shipping-method/{id}', 'SettingController@updateShippingMethods')->name('update.shipping.methods');
@@ -35,6 +35,7 @@ Route::group(['namespace' => 'Dashboard', 'middleware' => 'auth:admin','prefix'=
     Route::group(['prefix' => 'profile'], function () {
         Route::get('edit', 'ProfileController@editProfile')->name('edit.profile');
         Route::put('update', 'ProfileController@updateprofile')->name('update.profile');
+        //password
     });
 
 });
