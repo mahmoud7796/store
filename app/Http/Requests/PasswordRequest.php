@@ -24,7 +24,9 @@ class passwordRequest extends FormRequest
     public function rules()
     {
         return [
-            'password'  => 'nullable|confirmed|min:8'
+            'current_password'  => 'required|min:8',
+            'password_confirmation'  => 'required|min:8',
+            'password'  => 'required|confirmed|min:8'
         ];
     }
 }

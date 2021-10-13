@@ -36,8 +36,8 @@
                                         </ul>
                                     </div>
                                 </div>
-                                @include('dashboard.includes.alerts.success')
-                                @include('dashboard.includes.alerts.errors')
+                                @include('admin.includes.alerts.success')
+                                @include('admin.includes.alerts.errors')
                                 <div class="card-content collapse show">
                                     <div class="card-body">
                                         <form class="form" action="{{route('update.profile')}}"
@@ -77,34 +77,6 @@
                                                     </div>
 
                                                 </div>
-
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="projectinput1">  كلمة المرور الجديده </label>
-                                                            <input type="password" value="" id=""
-                                                                   class="form-control"
-                                                                   placeholder="  "
-                                                                   name="password">
-                                                            @error("password")
-                                                            <span class="text-danger">{{$message}}</span>
-                                                            @enderror
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="projectinput1"> تاكيد كلمة المرور   </label>
-                                                            <input type="password" value="" id=""
-                                                                   class="form-control"
-                                                                   placeholder=" "
-                                                                   name="password_confirmation">
-
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-
-
                                             </div>
 
                                             <div class="form-actions">

@@ -35,7 +35,8 @@ Route::group(['namespace' => 'Dashboard', 'middleware' => 'auth:admin','prefix'=
     Route::group(['prefix' => 'profile'], function () {
         Route::get('edit', 'ProfileController@editProfile')->name('edit.profile');
         Route::put('update', 'ProfileController@updateprofile')->name('update.profile');
-        //password
+        Route::get('edit-password', 'ProfileController@editPass')->name('password.edit.profile');
+        Route::post('update-password', 'ProfileController@updatepass')->name('password.update.profile');
     });
 
 });

@@ -10,7 +10,7 @@
                                 <li class="breadcrumb-item"><a href="">الرئيسية </a>
                                 </li>
 
-                                <li class="breadcrumb-item active">وسائل التوصيل
+                                <li class="breadcrumb-item active">تغيير كلمة السر
                                 </li>
                             </ol>
                         </div>
@@ -24,7 +24,7 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title" id="basic-layout-form"> تعديل  وسيلة توصيل </h4>
+                                    <h4 class="card-title" id="basic-layout-form"> تغيير كلمة السر </h4>
                                     <a class="heading-elements-toggle"><i
                                             class="la la-ellipsis-v font-medium-3"></i></a>
                                     <div class="heading-elements">
@@ -40,37 +40,46 @@
                                 @include('admin.includes.alerts.errors')
                                 <div class="card-content collapse show">
                                     <div class="card-body">
-                                        <form class="form" action="{{route('update.shipping.methods',$shippingMethod -> id)}}"
+                                        <form class="form" action="{{route('password.update.profile')}}"
                                               method="post"
-                                              enctype="multipart/form-data">
+                                              >
                                             @csrf
-                                            @method('PUT')
-                                            <input type="hidden" name="id" value="{{$shippingMethod -> id}}">
-
                                             <div class="form-body">
 
                                                 <div class="row">
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-12">
                                                         <div class="form-group">
-                                                            <label for="projectinput1"> الاسم </label>
-                                                            <input type="text" value="{{$shippingMethod -> value  }}" id="name"
+                                                            <label for="projectinput1">  كلمة المرور الحالية </label>
+                                                            <input type="password" value="" id=""
                                                                    class="form-control"
-                                                                   placeholder="  "
-                                                                   name="value">
-                                                            @error("value")
+                                                                   placeholder=" كلمة المرور الحالية "
+                                                                   name="current_password">
+                                                            @error("current_password")
                                                             <span class="text-danger">{{$message}}</span>
                                                             @enderror
                                                         </div>
                                                     </div>
 
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-12">
                                                         <div class="form-group">
-                                                            <label for="projectinput1"> قيمه التوصيل </label>
-                                                            <input type="number" value="{{$shippingMethod -> plain_value}}" id="plain_value"
+                                                            <label for="projectinput1">  كلمة المرور الجديدة </label>
+                                                            <input type="password" value="" id=""
                                                                    class="form-control"
-                                                                   placeholder="  "
-                                                                   name="plain_value">
-                                                            @error("plain_value")
+                                                                   placeholder="    كلمة المرور الجديده"
+                                                                   name="password">
+                                                            @error("password")
+                                                            <span class="text-danger">{{$message}}</span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <div class="form-group">
+                                                            <label for="projectinput1"> تاكيد كلمة المرور   </label>
+                                                            <input type="password" value="" id=""
+                                                                   class="form-control"
+                                                                   placeholder=" تاكيد كلمة المرور"
+                                                                   name="password_confirmation">
+                                                            @error("password_confirmation")
                                                             <span class="text-danger">{{$message}}</span>
                                                             @enderror
                                                         </div>
@@ -82,10 +91,7 @@
                                             </div>
 
                                             <div class="form-actions">
-                                                <button type="button" class="btn btn-warning mr-1"
-                                                        onclick="history.back();">
-                                                    <i class="ft-x"></i> تراجع
-                                                </button>
+
                                                 <button type="submit" class="btn btn-primary">
                                                     <i class="la la-check-square-o"></i> حفظ
                                                 </button>
@@ -93,6 +99,8 @@
                                         </form>
                                     </div>
                                 </div>
+
+
                             </div>
                         </div>
                     </div>
