@@ -13,4 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
+Route::get('/test',function (){
+   $category = App\Models\category::find(8);
+    $category-> makeVisible(['translations']);
+    return $category;
+});

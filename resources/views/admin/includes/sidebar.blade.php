@@ -2,12 +2,8 @@
     <div class="main-menu-content">
         <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
 
-            <li class="nav-item active"><a href=""><i class="la la-mouse-pointer"></i><span
-                        class="menu-title" data-i18n="nav.add_on_drag_drop.main">الرئيسية </span></a>
-            </li>
-
             <li class="nav-item"><a href=""><i class="la la-home"></i>
-                    <span class="menu-title" data-i18n="nav.dash.main">المتاجر </span>
+                    <span class="menu-title" data-i18n="nav.dash.main">لغات الموقع </span>
                     <span
                         class="badge badge badge-info badge-pill float-right mr-2">5</span>
                 </a>
@@ -15,39 +11,39 @@
                     <li class="active"><a class="menu-item" href=""
                                           data-i18n="nav.dash.ecommerce"> عرض الكل </a>
                     </li>
-                    <li><a class="menu-item" href="" data-i18n="nav.dash.crypto">أضافة
-                            متجر جديد </a>
+                    <li><a class="menu-item" href="" data-i18n="nav.dash.crypto">إضافة
+                            لغة جديدة </a>
                     </li>
                 </ul>
             </li>
 
 
             <li class="nav-item"><a href=""><i class="la la-group"></i>
-                    <span class="menu-title" data-i18n="nav.dash.main">الفرق </span>
+                    <span class="menu-title" data-i18n="nav.dash.main">الأقسام الرئيسية </span>
                     <span
-                        class="badge badge badge-danger badge-pill float-right mr-2"></span>
+                        class="badge badge badge-danger badge-pill float-right mr-2">{{\App\Models\category::ParentCategory()->count()}}</span>
                 </a>
                 <ul class="menu-content">
-                    <li class="active"><a class="menu-item" href=""
+                    <li class="active"><a class="menu-item" href="{{route('admin.maincategories')}}"
                                           data-i18n="nav.dash.ecommerce"> عرض الكل </a>
                     </li>
-                    <li><a class="menu-item" href="" data-i18n="nav.dash.crypto">أضافة
-                            فريق </a>
+                    <li><a class="menu-item" href="{{route('admin.maincategories.create')}}" data-i18n="nav.dash.crypto">إضافة
+                            قسم رئيسى جديد </a>
                     </li>
                 </ul>
             </li>
 
             <li class="nav-item"><a href=""><i class="la la-male"></i>
-                    <span class="menu-title" data-i18n="nav.dash.main">المدربين  </span>
+                    <span class="menu-title" data-i18n="nav.dash.main">الأقسام الفرعية  </span>
                     <span
-                        class="badge badge badge-success badge-pill float-right mr-2"></span>
+                        class="badge badge badge-success badge-pill float-right mr-2">{{\App\Models\Category::SubParentCategory()->count()}}</span>
                 </a>
                 <ul class="menu-content">
-                    <li class="active"><a class="menu-item" href=""
+                    <li class="active"><a class="menu-item" href="{{route('admin.subcategories')}}"
                                           data-i18n="nav.dash.ecommerce"> عرض الكل </a>
                     </li>
-                    <li><a class="menu-item" href="" data-i18n="nav.dash.crypto">أضافة
-                            مدرب </a>
+                    <li><a class="menu-item" href="{{route('admin.subcategories.create')}}" data-i18n="nav.dash.crypto">إضافة
+                            قسم فرعى جديد </a>
                     </li>
                 </ul>
             </li>

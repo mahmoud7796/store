@@ -5,7 +5,7 @@ namespace App\Models;
 use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
 
-class category extends Model
+class Category extends Model
 {
     use Translatable;
 
@@ -14,6 +14,7 @@ class category extends Model
      *
      * @var array
      */
+    protected $guarded = [];
     protected $with = ['translations'];
 
 
@@ -24,7 +25,6 @@ class category extends Model
      *
      * @var array
      */
-    protected $fillable = ['parent_id', 'slug', 'is_active'];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -41,6 +41,28 @@ class category extends Model
     protected $casts = [
         'is_active' => 'boolean',
     ];
+
+    public function scopeParentCategory($query){
+        $query -> whereNull('parent_id');
+    }
+
+    public function scopeSubParentCategory($query){
+        $query -> whereNotNull('parent_id');
+    }
+
+    public function getStatus(){
+        return $this -> is_active ==1  ? 'Active':'Deactive';
+    }
+
+    public function subCategories()
+    {
+        return $this->hasMany(self::class, 'parent_id');
+    }
+
+    public function mainCategories()
+    {
+        return $this->belongsTo(self::class, 'parent_id');
+    }
 
 
 }
