@@ -19,6 +19,7 @@ class Category extends Model
 
 
     protected $translatedAttributes = ['name'];
+    public $timestamps =false;
 
     /**
      * The attributes that are mass assignable.

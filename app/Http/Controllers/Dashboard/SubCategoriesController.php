@@ -10,7 +10,7 @@ use DB;
 class SubCategoriesController extends Controller
 {
     public function index(){
-         $subCategories=category::with(['mainCategories'=>function ($q){
+          $subCategories=category::with(['mainCategories'=>function ($q){
             $q->select('id');
         }])->SubParentCategory()->orderBy('id','DESC')->paginate(PAGINATION_COUMT);
         return view('admin.subcategories.index',compact('subCategories'));

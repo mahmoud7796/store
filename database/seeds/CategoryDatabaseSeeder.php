@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\category;
+use App\Models\Category;
 use Illuminate\Database\Seeder;
 
 class CategoryDatabaseSeeder extends Seeder
